@@ -1,0 +1,303 @@
+openapi: 3.0.3
+info:
+  title: Mashvisor Data Investment Analysis API
+  description: 'The Mashvisor Data API provides real estate investment analytics for the US housing market: short-term (Airbnb) and long-term (traditional) rental performance, MLS listings and property records, neighborhood and city analytics, rental-rate estimates, investment ROI breakdowns, and market trends. All endpoints are read-only (GET) and authenticated with an `x-api-key` header. Responses are JSON. Captured by the API Evangelist enrichment pipeline from the public documentation at https://www.mashvisor.com/api-doc-v2 (no OpenAPI is published by the vendor).'
+  version: v1.1
+  contact:
+    name: Mashvisor API Support
+    url: https://www.mashvisor.com/api-doc-v2
+  x-apievangelist-source: https://www.mashvisor.com/api-doc-v2
+  x-apievangelist-method: searched
+servers:
+- url: https://api.mashvisor.com/v1.1
+  description: Production
+security:
+- apiKey: []
+tags:
+- name: Investment Analysis
+  description: ROI, investment breakdowns, and rental performance
+paths:
+  /client/property/{id}/investment:
+    get:
+      operationId: getPropertyInvestment
+      summary: Get property investment analysis
+      description: Returns the full investment analysis for a property, including cap rate, cash flow, and ROI, with optional financing and expense overrides.
+      tags:
+      - Investment Analysis
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/stateQuery'
+      - name: down_payment
+        in: query
+        required: false
+        schema:
+          type: number
+      - name: loan_type
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: interest_rate
+        in: query
+        required: false
+        schema:
+          type: number
+      - name: airbnb_rental
+        in: query
+        required: false
+        schema:
+          type: number
+      - name: traditional_rental
+        in: query
+        required: false
+        schema:
+          type: number
+      responses:
+        '200':
+          description: Investment analysis
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /client/property/{id}/investment/breakdown:
+    get:
+      operationId: getPropertyInvestmentBreakdown
+      summary: Get property investment breakdown
+      description: Returns a detailed cost/return breakdown for a property investment.
+      tags:
+      - Investment Analysis
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/stateQuery'
+      - name: airbnb_rental
+        in: query
+        required: false
+        schema:
+          type: number
+      - name: traditional_rental
+        in: query
+        required: false
+        schema:
+          type: number
+      - name: startup_cost
+        in: query
+        required: false
+        schema:
+          type: number
+      responses:
+        '200':
+          description: Investment breakdown
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /client/property/marker:
+    get:
+      operationId: getPropertyMarker
+      summary: Get property marker investment data
+      description: Returns map-marker level investment data for a property.
+      tags:
+      - Investment Analysis
+      parameters:
+      - $ref: '#/components/parameters/stateQuery'
+      - name: pid
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: payment
+        in: query
+        required: false
+        schema:
+          type: number
+      responses:
+        '200':
+          description: Property marker data
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /client/neighborhood/{id}/airbnb/details:
+    get:
+      operationId: listNeighborhoodAirbnbDetails
+      summary: List neighborhood Airbnb listings
+      description: Returns short-term (Airbnb) rental listings and performance for a neighborhood.
+      tags:
+      - Investment Analysis
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/stateQuery'
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: items
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: bedrooms
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Neighborhood Airbnb details
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /client/neighborhood/{id}/traditional/listing:
+    get:
+      operationId: listNeighborhoodTraditionalListings
+      summary: List neighborhood traditional listings
+      description: Returns long-term (traditional) rental listings for a neighborhood.
+      tags:
+      - Investment Analysis
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/stateQuery'
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: items
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: min_price
+        in: query
+        required: false
+        schema:
+          type: number
+      - name: max_price
+        in: query
+        required: false
+        schema:
+          type: number
+      responses:
+        '200':
+          description: Neighborhood traditional listings
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  responses:
+    NotFound:
+      description: Not Found -- The specified resource could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Too Many Requests -- You're sending too many requests, slow down.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized -- Your API key is wrong.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Internal Server Error -- We had a problem with our server.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Bad Request -- Your request is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    stateQuery:
+      name: state
+      in: query
+      required: true
+      description: Two-letter US state code (e.g. CA). Required; API returns 404 if omitted.
+      schema:
+        type: string
+  schemas:
+    Error:
+      type: object
+      description: Standard JSON error envelope returned on 4xx/5xx responses.
+      properties:
+        status:
+          type: string
+          example: error
+        code:
+          type: integer
+          example: 404
+        message:
+          type: string
+          example: Not Found -- The specified property could not be found.
+      required:
+      - status
+      - code
+      - message
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Include your secret API key in the `x-api-key` header on every request. Obtain a key by registering for a developer account at mashvisor.com.

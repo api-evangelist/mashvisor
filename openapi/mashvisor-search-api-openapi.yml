@@ -1,0 +1,360 @@
+openapi: 3.0.3
+info:
+  title: Mashvisor Data Investment Analysis Search API
+  description: 'The Mashvisor Data API provides real estate investment analytics for the US housing market: short-term (Airbnb) and long-term (traditional) rental performance, MLS listings and property records, neighborhood and city analytics, rental-rate estimates, investment ROI breakdowns, and market trends. All endpoints are read-only (GET) and authenticated with an `x-api-key` header. Responses are JSON. Captured by the API Evangelist enrichment pipeline from the public documentation at https://www.mashvisor.com/api-doc-v2 (no OpenAPI is published by the vendor).'
+  version: v1.1
+  contact:
+    name: Mashvisor API Support
+    url: https://www.mashvisor.com/api-doc-v2
+  x-apievangelist-source: https://www.mashvisor.com/api-doc-v2
+  x-apievangelist-method: searched
+servers:
+- url: https://api.mashvisor.com/v1.1
+  description: Production
+security:
+- apiKey: []
+tags:
+- name: Search
+  description: City, neighborhood, and listing search
+paths:
+  /client/city/list:
+    get:
+      operationId: listCities
+      summary: List cities in a state
+      description: Returns the list of cities Mashvisor covers within a given state.
+      tags:
+      - Search
+      parameters:
+      - $ref: '#/components/parameters/stateQuery'
+      responses:
+        '200':
+          description: List of cities
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /client/metadata/validate-city:
+    get:
+      operationId: validateCity
+      summary: Validate a city
+      description: Validates that a given state/city pair is covered by Mashvisor.
+      tags:
+      - Search
+      parameters:
+      - $ref: '#/components/parameters/stateQuery'
+      - name: city
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Validation result
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /client/city/neighborhoods/{state}/{city}:
+    get:
+      operationId: listCityNeighborhoods
+      summary: List neighborhoods in a city
+      description: Returns the neighborhoods within a given state and city.
+      tags:
+      - Search
+      parameters:
+      - name: state
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: city
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of neighborhoods
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /client/city/top-markets:
+    get:
+      operationId: listTopMarkets
+      summary: List top markets in a state
+      description: Returns the top-performing markets within a given state.
+      tags:
+      - Search
+      parameters:
+      - $ref: '#/components/parameters/stateQuery'
+      responses:
+        '200':
+          description: Top markets
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /client/city/investment/{state}/{city}:
+    get:
+      operationId: getCityInvestment
+      summary: Get city investment performance
+      description: Returns investment performance metrics for a given city.
+      tags:
+      - Search
+      parameters:
+      - name: state
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: city
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: City investment performance
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /client/city/properties/{state}/{city}:
+    get:
+      operationId: listCityProperties
+      summary: List properties in a city
+      description: Returns properties within a given state and city.
+      tags:
+      - Search
+      parameters:
+      - name: state
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: city
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: City properties
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /client/city/listings:
+    get:
+      operationId: listCityListings
+      summary: List active listings in a city
+      description: Returns active MLS listings for a city or zip code within a state.
+      tags:
+      - Search
+      parameters:
+      - $ref: '#/components/parameters/stateQuery'
+      - name: city
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: zip_code
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: City listings
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /client/trends/neighborhoods:
+    get:
+      operationId: listNeighborhoodTrends
+      summary: List neighborhood trends
+      description: Returns trend data for neighborhoods within a given city.
+      tags:
+      - Search
+      parameters:
+      - $ref: '#/components/parameters/stateQuery'
+      - name: city
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Neighborhood trends
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /client/neighborhood/{id}/bar:
+    get:
+      operationId: getNeighborhoodBar
+      summary: Get neighborhood historical bar data
+      description: Returns historical performance bar data for a neighborhood.
+      tags:
+      - Search
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/stateQuery'
+      responses:
+        '200':
+          description: Neighborhood bar data
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /client/neighborhood/{id}/schools:
+    get:
+      operationId: getNeighborhoodSchools
+      summary: Get neighborhood schools
+      description: Returns schools within a neighborhood.
+      tags:
+      - Search
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/stateQuery'
+      responses:
+        '200':
+          description: Neighborhood schools
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  responses:
+    NotFound:
+      description: Not Found -- The specified resource could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Too Many Requests -- You're sending too many requests, slow down.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized -- Your API key is wrong.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Internal Server Error -- We had a problem with our server.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Bad Request -- Your request is invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    stateQuery:
+      name: state
+      in: query
+      required: true
+      description: Two-letter US state code (e.g. CA). Required; API returns 404 if omitted.
+      schema:
+        type: string
+  schemas:
+    Error:
+      type: object
+      description: Standard JSON error envelope returned on 4xx/5xx responses.
+      properties:
+        status:
+          type: string
+          example: error
+        code:
+          type: integer
+          example: 404
+        message:
+          type: string
+          example: Not Found -- The specified property could not be found.
+      required:
+      - status
+      - code
+      - message
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Include your secret API key in the `x-api-key` header on every request. Obtain a key by registering for a developer account at mashvisor.com.
