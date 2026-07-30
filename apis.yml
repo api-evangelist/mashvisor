@@ -1,8 +1,30 @@
 aid: mashvisor
 name: Mashvisor
-description: Mashvisor is a company surfaced as a portfolio company of 500-global and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Mashvisor is a real estate investment analytics platform for the US housing
+  market. Its Data API gives investors, agents, property managers, and developers
+  programmatic access to short-term (Airbnb) and long-term (traditional) rental
+  performance, MLS listings and property records, neighborhood and city analytics,
+  rental-rate estimates, investment ROI and cash-flow breakdowns, predictive
+  scores, and market trends. All API operations are read-only GET requests
+  authenticated with an x-api-key header and scoped by US state; responses are
+  JSON. Plans range from a free developer trial to Enterprise. Mashvisor was
+  surfaced as a 500 Global portfolio company and enriched by the API Evangelist
+  pipeline from its public developer documentation.
 url: https://raw.githubusercontent.com/api-evangelist/mashvisor/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.mashvisor.com/favicon-32x32.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,15 +33,150 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Real Estate
+- Property Data
+- Analytics
+- Rental
+- Airbnb
+- Investment
+- MLS
+- Housing
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: mashvisor:mashvisor-investment-analysis-api
+  name: Mashvisor Investment Analysis API
+  description: ROI, investment breakdowns, and rental performance
+  humanURL: https://www.mashvisor.com/api-doc-v2
+  baseURL: https://api.mashvisor.com/v1.1
+  tags:
+  - Investment Analysis
+  properties:
+  - type: OpenAPI
+    url: openapi/mashvisor-investment-analysis-api-openapi.yml
+  - type: Documentation
+    url: https://www.mashvisor.com/api-doc-v2
+  - type: APIReference
+    url: https://www.mashvisor.com/api-doc-v2
+  - type: GettingStarted
+    url: https://www.mashvisor.com/api-doc-v2/authentication
+- aid: mashvisor:mashvisor-property-info-api
+  name: Mashvisor Property Info API
+  description: Property records, images, taxing, transactions, estimates
+  humanURL: https://www.mashvisor.com/api-doc-v2
+  baseURL: https://api.mashvisor.com/v1.1
+  tags:
+  - Property Info
+  properties:
+  - type: OpenAPI
+    url: openapi/mashvisor-property-info-api-openapi.yml
+  - type: Documentation
+    url: https://www.mashvisor.com/api-doc-v2
+  - type: APIReference
+    url: https://www.mashvisor.com/api-doc-v2
+  - type: GettingStarted
+    url: https://www.mashvisor.com/api-doc-v2/authentication
+- aid: mashvisor:mashvisor-rental-rates-api
+  name: Mashvisor Rental Rates API
+  description: Traditional and Airbnb rental-rate estimates
+  humanURL: https://www.mashvisor.com/api-doc-v2
+  baseURL: https://api.mashvisor.com/v1.1
+  tags:
+  - Rental Rates
+  properties:
+  - type: OpenAPI
+    url: openapi/mashvisor-rental-rates-api-openapi.yml
+  - type: Documentation
+    url: https://www.mashvisor.com/api-doc-v2
+  - type: APIReference
+    url: https://www.mashvisor.com/api-doc-v2
+  - type: GettingStarted
+    url: https://www.mashvisor.com/api-doc-v2/authentication
+- aid: mashvisor:mashvisor-search-api
+  name: Mashvisor Search API
+  description: City, neighborhood, and listing search
+  humanURL: https://www.mashvisor.com/api-doc-v2
+  baseURL: https://api.mashvisor.com/v1.1
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/mashvisor-search-api-openapi.yml
+  - type: Documentation
+    url: https://www.mashvisor.com/api-doc-v2
+  - type: APIReference
+    url: https://www.mashvisor.com/api-doc-v2
+  - type: GettingStarted
+    url: https://www.mashvisor.com/api-doc-v2/authentication
+- aid: mashvisor:mashvisor-trends-api
+  name: Mashvisor Trends API
+  description: Market trends and heatmaps
+  humanURL: https://www.mashvisor.com/api-doc-v2
+  baseURL: https://api.mashvisor.com/v1.1
+  tags:
+  - Trends
+  properties:
+  - type: OpenAPI
+    url: openapi/mashvisor-trends-api-openapi.yml
+  - type: Documentation
+    url: https://www.mashvisor.com/api-doc-v2
+  - type: APIReference
+    url: https://www.mashvisor.com/api-doc-v2
+  - type: GettingStarted
+    url: https://www.mashvisor.com/api-doc-v2/authentication
 common:
 - type: Website
   url: https://mashvisor.com
+- type: Documentation
+  url: https://www.mashvisor.com/api-doc-v2
+- type: APIReference
+  url: https://www.mashvisor.com/api-doc-v2
+- type: GettingStarted
+  url: https://www.mashvisor.com/api-doc-v2/authentication
+- type: Pricing
+  url: https://www.mashvisor.com/api-plans
+- type: SignUp
+  url: https://www.mashvisor.com/explore/profile/developers?api-trial=true
+- type: Blog
+  url: https://www.mashvisor.com/blog/
+- type: Support
+  url: https://www.mashvisor.com/contact-us/
+- type: TermsOfService
+  url: https://www.mashvisor.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.mashvisor.com/privacy-policy/
+- type: Authentication
+  url: authentication/mashvisor-authentication.yml
+- type: AgenticAccess
+  url: agentic-access/mashvisor-agentic-access.yml
+- type: DomainSecurity
+  url: security/mashvisor-domain-security.yml
+- type: Conventions
+  url: conventions/mashvisor-conventions.yml
+- type: ErrorCatalog
+  url: errors/mashvisor-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/mashvisor-lifecycle.yml
+- type: Conformance
+  url: conformance/mashvisor-conformance.yml
+- type: DataModel
+  url: data-model/mashvisor-data-model.yml
+- type: Sandbox
+  url: sandbox/mashvisor-sandbox.yml
+- type: MCPServer
+  url: mcp/mashvisor-mcp.yml
+- type: LLMsTxt
+  url: llms/mashvisor-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1
