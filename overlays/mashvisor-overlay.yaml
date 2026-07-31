@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Mashvisor Data API
+  version: 1.0.0
+extends: openapi/mashvisor-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-rating: 3
+    x-apievangelist-category:
+    - real-estate
+    - analytics
+    - property-data
+- target: $.info
+  update:
+    x-apievangelist-notes: >-
+      Captured by the API Evangelist enrichment pipeline from the public
+      documentation at https://www.mashvisor.com/api-doc-v2. Mashvisor publishes
+      no OpenAPI; this spec is a faithful reconstruction of the documented
+      GET operations, x-api-key auth, and error envelope.

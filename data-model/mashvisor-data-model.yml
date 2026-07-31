@@ -1,0 +1,58 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/mashvisor-openapi.yml
+entities:
+- name: State
+  key: state
+  description: Two-letter US state code; the top-level scoping context for the API.
+- name: City
+  key: state + city
+  description: A city within a state; markets, listings, trends, and neighborhoods roll up here.
+- name: Neighborhood
+  key: id
+  description: A neighborhood within a city; carries Airbnb/traditional listings, schools, bar/history.
+- name: Property
+  key: id (pid)
+  description: An individual property/parcel; carries images, taxing, transactions, estimates, investment analysis.
+- name: RentalRate
+  key: state + city + neighborhood + source
+  description: Traditional or Airbnb rental-rate estimate by bedroom count.
+- name: Trend
+  key: state / city / zip_code
+  description: Market trend series (city trends, listing-price, summary, heatmap).
+relationships:
+- from: City
+  to: State
+  type: belongs_to
+  via: state
+- from: Neighborhood
+  to: City
+  type: belongs_to
+  via: city
+- from: Property
+  to: City
+  type: belongs_to
+  via: city
+- from: Property
+  to: Neighborhood
+  type: belongs_to
+  via: neighborhood
+- from: City
+  to: Neighborhood
+  type: has_many
+  via: neighborhoods
+- from: City
+  to: Property
+  type: has_many
+  via: properties
+- from: Neighborhood
+  to: Property
+  type: has_many
+  via: airbnb/traditional listings
+- from: RentalRate
+  to: Neighborhood
+  type: belongs_to
+  via: neighborhood
+id_notes:
+  property_id: Referenced as `id` or `pid` across property endpoints.
+  neighborhood_id: Referenced as `id` on neighborhood endpoints.

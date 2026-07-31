@@ -1,0 +1,22 @@
+{
+  "provider": "mashvisor",
+  "sources": [
+    "mashvisor-investment-analysis-api-openapi.yml",
+    "mashvisor-property-info-api-openapi.yml",
+    "mashvisor-rental-rates-api-openapi.yml",
+    "mashvisor-search-api-openapi.yml",
+    "mashvisor-trends-api-openapi.yml"
+  ],
+  "outputs": [
+    "mashvisor-investment-analysis-api-openapi.yml",
+    "mashvisor-property-info-api-openapi.yml",
+    "mashvisor-rental-rates-api-openapi.yml",
+    "mashvisor-search-api-openapi.yml",
+    "mashvisor-trends-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

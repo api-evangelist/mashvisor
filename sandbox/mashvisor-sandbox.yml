@@ -1,0 +1,19 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.mashvisor.com/api-plans
+summary: >-
+  Mashvisor publishes a free developer trial rather than a distinct sandbox host
+  or magic test values. The same production base URL is used; the free tier caps
+  usage to a small number of sample requests for testing.
+test_access:
+  free_trial: true
+  free_calls: 30
+  free_calls_note: one-time sample requests, no credit card required
+  trial_length: two-week trial period (per authentication docs)
+  signup: https://www.mashvisor.com/explore/profile/developers?api-trial=true
+  base_url: https://api.mashvisor.com/v1.1
+  separate_sandbox_host: false
+test_values:
+  note: >-
+    No published magic/test identifiers, test cards, or fixture tooling. Test
+    requests run against live data under the free-tier quota. No values invented.

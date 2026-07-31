@@ -1,0 +1,29 @@
+# Mashvisor
+
+> Mashvisor is a real estate investment analytics platform for the US housing
+> market. Its Data API provides short-term (Airbnb) and long-term (traditional)
+> rental performance, MLS listings and property records, neighborhood and city
+> analytics, rental-rate estimates, investment ROI breakdowns, and market trends.
+> All API operations are read-only GET requests authenticated with an
+> `x-api-key` header; responses are JSON.
+
+## API
+
+- [Mashvisor Data API docs](https://www.mashvisor.com/api-doc-v2): Full API reference (Search, Property Info, Investment Analysis, Rental Rates, Trends)
+- [Authentication](https://www.mashvisor.com/api-doc-v2/authentication): x-api-key header; base URL https://api.mashvisor.com/v1.1
+- [Errors](https://www.mashvisor.com/api-doc-v2/errors): JSON error envelope and status codes
+- [API plans & pricing](https://www.mashvisor.com/api-plans): Free trial through Enterprise tiers
+
+## Specs
+
+- [OpenAPI (reconstructed)](https://raw.githubusercontent.com/api-evangelist/mashvisor/refs/heads/main/openapi/mashvisor-openapi.yml): 28 documented GET operations
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/mashvisor/refs/heads/main/authentication/mashvisor-authentication.yml)
+- [Error catalog](https://raw.githubusercontent.com/api-evangelist/mashvisor/refs/heads/main/errors/mashvisor-problem-types.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/mashvisor/refs/heads/main/conventions/mashvisor-conventions.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/mashvisor/refs/heads/main/data-model/mashvisor-data-model.yml)
+- [MCP candidate tools](https://raw.githubusercontent.com/api-evangelist/mashvisor/refs/heads/main/mcp/mashvisor-mcp.yml)
+
+## Docs
+
+- [Website](https://www.mashvisor.com)
+- [Developer signup / free trial](https://www.mashvisor.com/explore/profile/developers?api-trial=true)

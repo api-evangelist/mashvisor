@@ -1,0 +1,18 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.mashvisor.com/api-doc-v2
+versioning:
+  scheme: uri-path
+  current: v1.1
+  location: base path (https://api.mashvisor.com/v1.1)
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation policy or Sunset/Deprecation header support found.
+sla:
+  note: >-
+    SLA availability is offered on the Growth plan and customized SLA terms on
+    Enterprise, per the API plans page. No public uptime target document found.
+  docs: https://www.mashvisor.com/api-plans
+status_page: null
+deprecated_operations: []

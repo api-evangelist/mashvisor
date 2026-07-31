@@ -1,0 +1,14 @@
+{
+  "repo": "mashvisor",
+  "feeds": [
+    {
+      "source": "https://www.mashvisor.com/explore/profile/developers?api-trial=true",
+      "feed_url": "https://www.mashvisor.com/explore/profile/developers?api-trial=true",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-07-25T15:00:33Z"
+}

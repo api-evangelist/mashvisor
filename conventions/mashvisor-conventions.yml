@@ -1,0 +1,52 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.mashvisor.com/api-doc-v2
+summary: >-
+  Cross-cutting request/response conventions for the Mashvisor Data API, captured
+  from the public documentation and derived from the OpenAPI. The API is a
+  read-only (GET) analytics API keyed by a state parameter and an x-api-key header.
+authentication:
+  style: api-key-header
+  header: x-api-key
+  docs: https://www.mashvisor.com/api-doc-v2/authentication
+  detail: >-
+    Every request must include the secret API key in the x-api-key header. Keys
+    are provisioned on subscription. Missing/wrong key returns 401.
+idempotency:
+  supported: false
+  note: >-
+    All operations are read-only GET requests, which are inherently idempotent;
+    the provider documents no idempotency-key header or write operations, so no
+    Idempotency pointer is wired.
+pagination:
+  style: page-number
+  params:
+  - name: page
+    description: 1-based page number
+  - name: items
+    description: Number of items per page
+  applies_to:
+  - listNeighborhoodAirbnbDetails
+  - listNeighborhoodTraditionalListings
+  - listNearbyProperties
+  - listCityTrends
+versioning:
+  scheme: uri-path
+  current: v1.1
+  location: base path (/v1.1/client/...)
+required_context:
+  state: >-
+    Nearly every endpoint requires a two-letter US state code, as a path segment
+    or a `state` query parameter; omitting it returns 404.
+error_envelope:
+  format: json
+  shape: '{ "status": "error", "code": <http_code>, "message": "<text>" }'
+  docs: https://www.mashvisor.com/api-doc-v2/errors
+  cross_ref: errors/mashvisor-problem-types.yml
+rate_limiting:
+  signal: HTTP 429 (Too Many Requests)
+  quota_model: monthly call allowance per plan; $0.30 per-call overage
+  docs: https://www.mashvisor.com/api-plans
+response_format:
+  content_type: application/json
+  success_envelope: '{ "status": "success", "content": { ... } }'

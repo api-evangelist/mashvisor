@@ -1,0 +1,37 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.mashvisor.com/api-doc-v2/errors
+format: json
+envelope:
+  shape: '{ "status": "error", "code": <http_code>, "message": "<text>" }'
+  fields:
+  - status
+  - code
+  - message
+problems:
+- status: 400
+  title: Bad Request
+  message: Bad Request -- Your request is invalid.
+  meaning: Client input error.
+- status: 401
+  title: Unauthorized
+  message: Unauthorized -- Your API key is wrong.
+  remediation: Provide a valid key in the x-api-key header.
+- status: 404
+  title: Not Found
+  message: Not Found -- The specified property could not be found.
+  meaning: Resource not found, or a required parameter (e.g. state) was omitted.
+- status: 429
+  title: Too Many Requests
+  message: Too Many Requests -- You're sending too many requests! Slow down!
+  remediation: Reduce request rate; check plan monthly allowance.
+- status: 500
+  title: Internal Server Error
+  message: Internal Server Error -- We had a problem with our server. Try again later.
+- status: 503
+  title: Service Unavailable
+  message: Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+classes:
+  '2xx': A 2xx status code indicates a successful response.
+  '4xx': A 4xx status code indicates a client error (input problem).
+  '5xx': A 5xx status code indicates a server error.

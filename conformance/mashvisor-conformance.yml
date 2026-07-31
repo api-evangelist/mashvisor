@@ -1,0 +1,26 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/mashvisor-openapi.yml
+standards:
+- id: oauth2
+  conforms: false
+  evidence: API uses an x-api-key header, not OAuth2.
+- id: oidc
+  conforms: false
+- id: api-key-auth
+  conforms: true
+  evidence: securityScheme type apiKey in header (x-api-key)
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors use a custom JSON envelope ({status, code, message}), not
+    application/problem+json.
+- id: pagination
+  conforms: true
+  evidence: page/items query parameters on list operations
+- id: rest-json
+  conforms: true
+  evidence: JSON over HTTPS, resource-oriented GET endpoints
+- id: idempotency
+  conforms: true
+  evidence: read-only GET API; all operations idempotent by method

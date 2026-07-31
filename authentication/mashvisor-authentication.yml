@@ -1,0 +1,17 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/mashvisor-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: Include your secret API key in the `x-api-key` header on every request. Obtain
+    a key by registering for a developer account at mashvisor.com.
+  sources:
+  - openapi/mashvisor-openapi.yml

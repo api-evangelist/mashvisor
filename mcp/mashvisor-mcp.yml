@@ -1,0 +1,95 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/mashvisor-openapi.yml
+note: >-
+  No official hosted/remote Mashvisor MCP server was found. This is a candidate
+  tool list derived one-to-one from the OpenAPI operations, to seed an MCP server.
+server:
+  name: mashvisor
+  transport: http
+tools:
+- name: list_cities
+  description: List cities in a state
+  source_operation: openapi/mashvisor-openapi.yml#listCities
+- name: validate_city
+  description: Validate a state/city pair
+  source_operation: openapi/mashvisor-openapi.yml#validateCity
+- name: list_city_neighborhoods
+  description: List neighborhoods in a city
+  source_operation: openapi/mashvisor-openapi.yml#listCityNeighborhoods
+- name: list_top_markets
+  description: List top markets in a state
+  source_operation: openapi/mashvisor-openapi.yml#listTopMarkets
+- name: get_city_investment
+  description: Get city investment performance
+  source_operation: openapi/mashvisor-openapi.yml#getCityInvestment
+- name: list_city_properties
+  description: List properties in a city
+  source_operation: openapi/mashvisor-openapi.yml#listCityProperties
+- name: list_city_listings
+  description: List active listings in a city
+  source_operation: openapi/mashvisor-openapi.yml#listCityListings
+- name: list_neighborhood_trends
+  description: List neighborhood trends
+  source_operation: openapi/mashvisor-openapi.yml#listNeighborhoodTrends
+- name: get_neighborhood_bar
+  description: Get neighborhood historical bar data
+  source_operation: openapi/mashvisor-openapi.yml#getNeighborhoodBar
+- name: get_neighborhood_schools
+  description: Get neighborhood schools
+  source_operation: openapi/mashvisor-openapi.yml#getNeighborhoodSchools
+- name: get_property
+  description: Look up a property
+  source_operation: openapi/mashvisor-openapi.yml#getProperty
+- name: get_property_images
+  description: Get property images
+  source_operation: openapi/mashvisor-openapi.yml#getPropertyImages
+- name: get_property_taxing
+  description: Get property taxing data
+  source_operation: openapi/mashvisor-openapi.yml#getPropertyTaxing
+- name: get_property_transactions
+  description: Get property transactions
+  source_operation: openapi/mashvisor-openapi.yml#getPropertyTransactions
+- name: get_property_estimates
+  description: Get property value estimates
+  source_operation: openapi/mashvisor-openapi.yml#getPropertyEstimates
+- name: get_property_estimates_history
+  description: Get property estimate history
+  source_operation: openapi/mashvisor-openapi.yml#getPropertyEstimatesHistory
+- name: list_nearby_properties
+  description: List nearby properties
+  source_operation: openapi/mashvisor-openapi.yml#listNearbyProperties
+- name: get_property_schools
+  description: Get property schools
+  source_operation: openapi/mashvisor-openapi.yml#getPropertySchools
+- name: get_property_investment
+  description: Get property investment analysis
+  source_operation: openapi/mashvisor-openapi.yml#getPropertyInvestment
+- name: get_property_investment_breakdown
+  description: Get property investment breakdown
+  source_operation: openapi/mashvisor-openapi.yml#getPropertyInvestmentBreakdown
+- name: get_property_marker
+  description: Get property marker investment data
+  source_operation: openapi/mashvisor-openapi.yml#getPropertyMarker
+- name: list_neighborhood_airbnb_details
+  description: List neighborhood Airbnb listings
+  source_operation: openapi/mashvisor-openapi.yml#listNeighborhoodAirbnbDetails
+- name: list_neighborhood_traditional_listings
+  description: List neighborhood traditional listings
+  source_operation: openapi/mashvisor-openapi.yml#listNeighborhoodTraditionalListings
+- name: get_rental_rates
+  description: Get rental-rate estimates
+  source_operation: openapi/mashvisor-openapi.yml#getRentalRates
+- name: list_city_trends
+  description: List city trends
+  source_operation: openapi/mashvisor-openapi.yml#listCityTrends
+- name: get_trends_summary
+  description: Get market trends summary
+  source_operation: openapi/mashvisor-openapi.yml#getTrendsSummary
+- name: get_listing_price_trends
+  description: Get listing-price trends
+  source_operation: openapi/mashvisor-openapi.yml#getListingPriceTrends
+- name: get_search_heatmap
+  description: Get investment heatmap
+  source_operation: openapi/mashvisor-openapi.yml#getSearchHeatmap

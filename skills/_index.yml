@@ -1,0 +1,12 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/mashvisor-openapi.yml
+skills:
+- file: mashvisor-analyze-property-investment.md
+  name: Analyze a property investment with Mashvisor
+  api: openapi/mashvisor-openapi.yml
+  operations: [getProperty, getPropertyInvestment, getPropertyInvestmentBreakdown]
+- file: mashvisor-scout-rental-market.md
+  name: Scout a rental market with Mashvisor
+  api: openapi/mashvisor-openapi.yml
+  operations: [listTopMarkets, listCityNeighborhoods, getRentalRates, getTrendsSummary]
