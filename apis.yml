@@ -131,6 +131,8 @@ apis:
   - type: GettingStarted
     url: https://www.mashvisor.com/api-doc-v2/authentication
 common:
+- type: Overlay
+  url: overlays/mashvisor-overlay.yaml
 - type: Website
   url: https://mashvisor.com
 - type: Documentation
