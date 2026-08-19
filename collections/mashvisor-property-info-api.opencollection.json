@@ -1,0 +1,273 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mashvisor Data Investment Analysis Property Info API",
+    "version": "v1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Property Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up a property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/property",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "zip_code",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parcel_number",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mls_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns property records by address, id, city, zip code, parcel number, or MLS id within a state."
+        },
+        {
+          "info": {
+            "name": "Get property images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/property/:id/images",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              }
+            ]
+          },
+          "docs": "Returns images for a property."
+        },
+        {
+          "info": {
+            "name": "Get property taxing data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/property/:id/taxing",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              }
+            ]
+          },
+          "docs": "Returns tax-assessment data for a property."
+        },
+        {
+          "info": {
+            "name": "Get property transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/property/:id/transactions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              }
+            ]
+          },
+          "docs": "Returns the sale/transaction history for a property."
+        },
+        {
+          "info": {
+            "name": "Get property value estimates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/property/estimates/:pid",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              }
+            ]
+          },
+          "docs": "Returns current value estimates for a property."
+        },
+        {
+          "info": {
+            "name": "Get property estimate history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/property/:id/estimates-history",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              }
+            ]
+          },
+          "docs": "Returns the historical value-estimate series for a property."
+        },
+        {
+          "info": {
+            "name": "List nearby properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/property/nearby",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "zip_code",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parcel_number",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mls_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns properties near a given property or location."
+        },
+        {
+          "info": {
+            "name": "Get property schools",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/property/:id/schools",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              }
+            ]
+          },
+          "docs": "Returns schools near a property."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

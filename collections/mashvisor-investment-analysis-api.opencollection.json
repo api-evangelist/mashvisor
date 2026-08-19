@@ -1,0 +1,231 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mashvisor Data Investment Analysis API",
+    "version": "v1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Investment Analysis",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get property investment analysis",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/property/:id/investment",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "down_payment",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "loan_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "interest_rate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "airbnb_rental",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "traditional_rental",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the full investment analysis for a property, including cap rate, cash flow, and ROI, with optional financing and expense overrides."
+        },
+        {
+          "info": {
+            "name": "Get property investment breakdown",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/property/:id/investment/breakdown",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "airbnb_rental",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "traditional_rental",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startup_cost",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a detailed cost/return breakdown for a property investment."
+        },
+        {
+          "info": {
+            "name": "Get property marker investment data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/property/marker",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "pid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "payment",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns map-marker level investment data for a property."
+        },
+        {
+          "info": {
+            "name": "List neighborhood Airbnb listings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/neighborhood/:id/airbnb/details",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "items",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bedrooms",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns short-term (Airbnb) rental listings and performance for a neighborhood."
+        },
+        {
+          "info": {
+            "name": "List neighborhood traditional listings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/neighborhood/:id/traditional/listing",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "items",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "min_price",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max_price",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns long-term (traditional) rental listings for a neighborhood."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

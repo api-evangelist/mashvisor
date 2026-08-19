@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mashvisor Data Investment Analysis Trends API",
+    "version": "v1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Trends",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List city trends",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/trends/cities",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "items",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns trend data for cities within a state."
+        },
+        {
+          "info": {
+            "name": "Get market trends summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/trends/summary/:state/:city",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a market-trends summary for a given city."
+        },
+        {
+          "info": {
+            "name": "Get listing-price trends",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/trends/listing-price",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "zip_code",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "beds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "property_type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns listing-price trend data for a zip code."
+        },
+        {
+          "info": {
+            "name": "Get investment heatmap",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/search/heatmap",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "sw_lat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sw_lng",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ne_lat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ne_lng",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns heatmap data for a state or bounding box."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

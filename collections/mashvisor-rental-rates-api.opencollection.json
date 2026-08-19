@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mashvisor Data Investment Analysis Rental Rates API",
+    "version": "v1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rental Rates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get rental-rate estimates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/rental-rates",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "neighborhood",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "zip_code",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves traditional or short-term (Airbnb) rental-rate estimates for a neighborhood or area, with comparable attributes and sample counts by bedroom count."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

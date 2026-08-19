@@ -1,0 +1,258 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mashvisor Data Investment Analysis Search API",
+    "version": "v1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List cities in a state",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/city/list",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              }
+            ]
+          },
+          "docs": "Returns the list of cities Mashvisor covers within a given state."
+        },
+        {
+          "info": {
+            "name": "Validate a city",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/metadata/validate-city",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Validates that a given state/city pair is covered by Mashvisor."
+        },
+        {
+          "info": {
+            "name": "List neighborhoods in a city",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/city/neighborhoods/:state/:city",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the neighborhoods within a given state and city."
+        },
+        {
+          "info": {
+            "name": "List top markets in a state",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/city/top-markets",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              }
+            ]
+          },
+          "docs": "Returns the top-performing markets within a given state."
+        },
+        {
+          "info": {
+            "name": "Get city investment performance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/city/investment/:state/:city",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns investment performance metrics for a given city."
+        },
+        {
+          "info": {
+            "name": "List properties in a city",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/city/properties/:state/:city",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns properties within a given state and city."
+        },
+        {
+          "info": {
+            "name": "List active listings in a city",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/city/listings",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "zip_code",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns active MLS listings for a city or zip code within a state."
+        },
+        {
+          "info": {
+            "name": "List neighborhood trends",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/trends/neighborhoods",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns trend data for neighborhoods within a given city."
+        },
+        {
+          "info": {
+            "name": "Get neighborhood historical bar data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/neighborhood/:id/bar",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              }
+            ]
+          },
+          "docs": "Returns historical performance bar data for a neighborhood."
+        },
+        {
+          "info": {
+            "name": "Get neighborhood schools",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.mashvisor.com/v1.1/client/neighborhood/:id/schools",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter US state code (e.g. CA). Required; API returns 404 if omitted."
+              }
+            ]
+          },
+          "docs": "Returns schools within a neighborhood."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
