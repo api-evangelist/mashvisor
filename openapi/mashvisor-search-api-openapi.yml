@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Mashvisor Data Investment Analysis Search API
-  description: 'The Mashvisor Data API provides real estate investment analytics for the US housing market: short-term (Airbnb) and long-term (traditional) rental performance, MLS listings and property records, neighborhood and city analytics, rental-rate estimates, investment ROI breakdowns, and market trends. All endpoints are read-only (GET) and authenticated with an `x-api-key` header. Responses are JSON. Captured by the API Evangelist enrichment pipeline from the public documentation at https://www.mashvisor.com/api-doc-v2 (no OpenAPI is published by the vendor).'
+  title: Mashvisor Data Search API
+  description: 'The Mashvisor Data API provides real estate investment analytics for the US housing market: short-term (Airbnb) and long-term (traditional) rental performance, MLS listings and property records, neighborhood and city analytics, rental-rate estimates, investment ROI breakdowns, and market trends.'
   version: v1.1
   contact:
     name: Mashvisor API Support
@@ -296,14 +296,8 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   responses:
-    NotFound:
-      description: Not Found -- The specified resource could not be found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    TooManyRequests:
-      description: Too Many Requests -- You're sending too many requests, slow down.
+    BadRequest:
+      description: Bad Request -- Your request is invalid.
       content:
         application/json:
           schema:
@@ -320,20 +314,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Bad Request -- Your request is invalid.
+    TooManyRequests:
+      description: Too Many Requests -- You're sending too many requests, slow down.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    stateQuery:
-      name: state
-      in: query
-      required: true
-      description: Two-letter US state code (e.g. CA). Required; API returns 404 if omitted.
-      schema:
-        type: string
+    NotFound:
+      description: Not Found -- The specified resource could not be found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -352,6 +344,14 @@ components:
       - status
       - code
       - message
+  parameters:
+    stateQuery:
+      name: state
+      in: query
+      required: true
+      description: Two-letter US state code (e.g. CA). Required; API returns 404 if omitted.
+      schema:
+        type: string
   securitySchemes:
     apiKey:
       type: apiKey
