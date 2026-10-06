@@ -47,7 +47,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-10-06'
 tags:
 - Company
 - Real Estate
@@ -156,6 +156,8 @@ apis:
   - type: GettingStarted
     url: https://www.mashvisor.com/api-doc-v2/authentication
 common:
+- url: https://www.mashvisor.com/blog/feed/
+  type: BlogRSS
 - type: Overlay
   url: overlays/mashvisor-overlay.yaml
 - type: Website
