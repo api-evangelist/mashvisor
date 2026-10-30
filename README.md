@@ -64,6 +64,125 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Mashvisor is a company surfaced as a portfolio company of 500-global and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Mashvisor is a real estate investment analytics platform for the US housing market. Its Data API gives investors, agents, property managers, and developers programmatic access to short-term (Airbnb) and long-term (traditional) rental performance, MLS listings and property records, neighborhood and city analytics, rental-rate estimates, investment ROI and cash-flow breakdowns, predictive scores, and market trends. All API operations are read-only GET requests authenticated with an x-api-key header and scoped by US state; responses are JSON. Plans range from a free developer trial to Enterprise. Mashvisor was surfaced as a 500 Global portfolio company and enriched by the API Evangelist pipeline from its public developer documentation.
 
-Backed by: 500-global — https://mashvisor.com
+**Areas:** Company · Real Estate · Property Data · Analytics · Rentals · Airbnb · Investment · MLS · Housing
+
+## Mashvisor on APIs.io
+
+Everything profiled for Mashvisor is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/mashvisor/](https://apis.io/providers/mashvisor/)** — or go straight to one of the APIs or properties below.
+
+### APIs (5)
+
+- [Mashvisor Investment Analysis API](https://apis.io/apis/mashvisor/mashvisor-investment-analysis-api/) — ROI, investment breakdowns, and rental performance
+- [Mashvisor Property Info API](https://apis.io/apis/mashvisor/mashvisor-property-info-api/) — Property records, images, taxing, transactions, estimates
+- [Mashvisor Rental Rates API](https://apis.io/apis/mashvisor/mashvisor-rental-rates-api/) — Traditional and Airbnb rental-rate estimates
+- [Mashvisor Search API](https://apis.io/apis/mashvisor/mashvisor-search-api/) — City, neighborhood, and listing search
+- [Mashvisor Trends API](https://apis.io/apis/mashvisor/mashvisor-trends-api/) — Market trends and heatmaps
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [mashvisor](https://apis.io/servers/mashvisor/mashvisor/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Mashvisor Agentic Access](https://apis.io/agentic-access/mashvisor/mashvisor-agentic-access/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [Mashvisor Data Investment Analysis API](https://apis.io/collections/mashvisor/open-mashvisor-investment-analysis-api/)
+- [Mashvisor Data Investment Analysis Property Info API](https://apis.io/collections/mashvisor/open-mashvisor-property-info-api/)
+- [Mashvisor Data Investment Analysis Rental Rates API](https://apis.io/collections/mashvisor/open-mashvisor-rental-rates-api/)
+- [Mashvisor Data Investment Analysis Search API](https://apis.io/collections/mashvisor/open-mashvisor-search-api/)
+- [Mashvisor Data Investment Analysis Trends API](https://apis.io/collections/mashvisor/open-mashvisor-trends-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Mashvisor Overlay](https://apis.io/overlays/mashvisor/mashvisor-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Mashvisor Authentication](https://apis.io/security/mashvisor/mashvisor-authentication/)
+- [Mashvisor Domain Security](https://apis.io/security/mashvisor/mashvisor-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://mashvisor.com)
+- [Documentation](https://www.mashvisor.com/api-doc-v2)
+- [Getting started](https://www.mashvisor.com/api-doc-v2/authentication)
+- [API reference](https://www.mashvisor.com/api-doc-v2)
+- [Pricing](https://www.mashvisor.com/api-plans)
+- [Sign up](https://www.mashvisor.com/explore/profile/developers?api-trial=true)
+- [Support](https://www.mashvisor.com/contact-us/)
+- [Blog](https://www.mashvisor.com/blog/)
+- [Terms of service](https://www.mashvisor.com/terms-of-use/)
+- [Privacy policy](https://www.mashvisor.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 33.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 50.2 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 37.5 |
+| Access clarity | 23.7 |
+
+**Agent readiness 24.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/mashvisor/](https://apis.io/providers/mashvisor/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Mashvisor: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/mashvisor/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
